@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import Layout from "./components/article";
+import Layout from "../components/article";
 import {
   Container,
   Image,
@@ -158,4 +158,3 @@ export default function Home() {
     </Layout>
   );
 }
-
