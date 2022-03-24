@@ -4,7 +4,6 @@ import {
   Image,
   Box,
   Text,
-  SimpleGrid,
   Button,
   Slider,
   SliderTrack,
@@ -15,9 +14,12 @@ import {
   LinkOverlay,
   LinkBox,
 } from "@chakra-ui/react";
-import { ChatIcon, M } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
+import {
+  faTwitter,
+  faDiscord,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import Layout from "../components/article";
 import Section from "../components/section";
 import Voices from "../components/list";
@@ -97,10 +99,23 @@ export default function Home() {
                 <LinkBox>
                   <LinkOverlay href="https://reurl.cc/bkX1gX" target="_blank">
                     <Button
-                      colorScheme="twitter"
+                      colorScheme="purple"
                       leftIcon={<FontAwesomeIcon icon={faDiscord} />}
                     >
                       Discord
+                    </Button>
+                  </LinkOverlay>
+                </LinkBox>
+                <LinkBox>
+                  <LinkOverlay
+                    href="https://www.youtube.com/channel/UCYsZjpYAuBdytWpZEyZKO4g"
+                    target="_blank"
+                  >
+                    <Button
+                      colorScheme="red"
+                      leftIcon={<FontAwesomeIcon icon={faYoutube} />}
+                    >
+                      Youtube
                     </Button>
                   </LinkOverlay>
                 </LinkBox>
