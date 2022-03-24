@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import Layout from "../components/article";
 import Section from "../components/section";
+import Voices from "../components/list";
 
 export default function Home() {
   const audioPlayer = useRef();
@@ -134,40 +135,7 @@ export default function Home() {
           </Box>
         </Section>
         <Section>
-          <SimpleGrid columns={[2, 2, 3]} spacing={4}>
-            <Button
-              leftIcon={<ChatIcon />}
-              size="md"
-              onClick={() => playVoice("leavenow")}
-            >
-              要滾快滾
-            </Button>
-            <Button
-              leftIcon={<ChatIcon />}
-              size="md"
-              onClick={() => playVoice("12dot15min")}
-              style={{
-                whiteSpace: "normal",
-                wordWrap: "break-word",
-              }}
-            >
-              在那邊吵
-            </Button>
-            <Button
-              leftIcon={<ChatIcon />}
-              size="md"
-              onClick={() => playVoice("juju")}
-            >
-              晚安啾啾
-            </Button>
-            <Button
-              leftIcon={<ChatIcon />}
-              size="md"
-              onClick={() => playVoice("badforkid")}
-            >
-              教壞小孩
-            </Button>
-          </SimpleGrid>
+          <Voices playVoice={playVoice} />
         </Section>
         <audio
           ref={(el) => {
