@@ -24,6 +24,7 @@ import Layout from "../components/article";
 import Section from "../components/section";
 import Voices from "../components/list";
 import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 
 export default function Home() {
   const audioPlayer = useRef();
@@ -62,6 +63,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <Navbar />
       <Container pt={20}>
         <Section delay={0.3}>
           <Box
