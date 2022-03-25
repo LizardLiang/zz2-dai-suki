@@ -10,11 +10,13 @@ import {
 } from '@chakra-ui/react'
 import Section from './section'
 import Voices from './list'
+import Category from './category'
 
-const VoicePack = props => {
+const VoicePack = () => {
   const audioPlayer = useRef()
   const [audioName, setAudioName] = useState('')
   const [audioVolume, setAudioVolume] = useState(30)
+  const [category, setCategory] = useState('全部')
   const playVoice = name => {
     name = `/voice/${name}.mp3`
     if (name === audioName) {
@@ -75,7 +77,10 @@ const VoicePack = props => {
         </Box>
       </Section>
       <Section delay={0.9}>
-        <Voices playVoice={playVoice} />
+        <Category category={category} setCategory={setCategory} />
+      </Section>
+      <Section delay={0.9}>
+        <Voices playVoice={playVoice} category={category} />
       </Section>
       <audio
         ref={el => {
@@ -89,4 +94,3 @@ const VoicePack = props => {
 }
 
 export default VoicePack
-
