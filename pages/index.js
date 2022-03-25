@@ -23,6 +23,7 @@ import {
 import Layout from "../components/article";
 import Section from "../components/section";
 import Voices from "../components/list";
+import Footer from "../components/footer";
 
 export default function Home() {
   const audioPlayer = useRef();
@@ -177,8 +178,11 @@ export default function Home() {
             </Slider>
           </Box>
         </Section>
-        <Section>
+        <Section delay={0.9}>
           <Voices playVoice={playVoice} />
+        </Section>
+        <Section delay={1.2}>
+          <Footer />
         </Section>
         <audio
           ref={(el) => {
@@ -191,3 +195,4 @@ export default function Home() {
     </Layout>
   );
 }
+
