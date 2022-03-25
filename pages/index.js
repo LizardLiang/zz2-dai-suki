@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <Container pt={10}>
+      <Container pt={20}>
         <Section delay={0.3}>
           <Box
             display="flex"
@@ -195,4 +195,3 @@ export default function Home() {
     </Layout>
   );
 }
-
