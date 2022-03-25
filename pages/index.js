@@ -26,22 +26,7 @@ import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import VoicePack from '../components/voice_pack'
 
-const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/videos`
-const API_KEY = `AIzaSyAXftlKsEqGeuGL8bk9p_2bDdGSgBCsFvU`
-
-export async function getServerSideProps() {
-  const res = await fetch(`${YOUTUBE_API_URL}?key=${API_KEY}`)
-  const data = await res.json()
-
-  return {
-    props: {
-      data
-    }
-  }
-}
-
-export default function Home({ data }) {
-  console.log('data', data)
+export default function Home() {
   const [curPage, setCurPage] = useState('voice_page')
 
   return (
