@@ -5,6 +5,8 @@ import {
   Link,
   Stack,
   Button,
+  LinkBox,
+  LinkOverlay,
   useColorModeValue
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -63,7 +65,16 @@ const Navbar = props => {
             語音包
           </LinkItem>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
-            <Button leftIcon={<FontAwesomeIcon icon={faGithub} />}>源碼</Button>
+            <LinkBox>
+              <LinkOverlay
+                href="https://github.com/LizardLiang/zz2-dai-suki"
+                target="_blank"
+              >
+                <Button leftIcon={<FontAwesomeIcon icon={faGithub} />}>
+                  源碼
+                </Button>
+              </LinkOverlay>
+            </LinkBox>
           </Box>
         </Stack>
       </Container>
@@ -72,4 +83,3 @@ const Navbar = props => {
 }
 
 export default Navbar
-
