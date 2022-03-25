@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react'
 
 const Footer = () => {
   return (
@@ -6,10 +6,11 @@ const Footer = () => {
       &copy; {new Date().getFullYear()} Lizard Liang. Content belongs to Wolf
       Valley
       <br />
-      Contact Me: Discord Peter Parker#0520
+      Contact Me @ Discord: Peter Parker#0520
+      <br />
+      有任何建議或是意見請連絡我
     </Box>
-  );
-};
+  )
+}
 
-export default Footer;
-
+export default Footer
