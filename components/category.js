@@ -7,7 +7,9 @@ const categoryList = [
   '阿腸',
   '睡覺系列',
   '配音員系列',
-  '戲謔系列'
+  '戲謔系列',
+  '罵倒系列',
+  '好油噢，宅弊了'
 ]
 
 const Category = props => {
