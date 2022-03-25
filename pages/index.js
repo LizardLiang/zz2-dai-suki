@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from 'react'
 import {
   Container,
   Image,
@@ -12,54 +12,37 @@ import {
   SliderMark,
   Stack,
   LinkOverlay,
-  LinkBox,
-} from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  LinkBox
+} from '@chakra-ui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitter,
   faDiscord,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import Layout from "../components/article";
-import Section from "../components/section";
-import Voices from "../components/list";
-import Footer from "../components/footer";
-import Navbar from "../components/navbar";
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons'
+import Layout from '../components/article'
+import Section from '../components/section'
+import Footer from '../components/footer'
+import Navbar from '../components/navbar'
+import VoicePack from '../components/voice_pack'
 
-export default function Home() {
-  const audioPlayer = useRef();
-  const [audioName, setAudioName] = useState("");
-  const [audioVolume, setAudioVolume] = useState(30);
-  const playVoice = (name) => {
-    name = `/voice/${name}.mp3`;
-    if (name === audioName) {
-      replayVoice();
-    } else setAudioName(name);
-  };
+const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/videos`
+const API_KEY = `AIzaSyAXftlKsEqGeuGL8bk9p_2bDdGSgBCsFvU`
 
-  const replayVoice = () => {
-    audioPlayer.current.pause();
-    //audioPlayer.current.load();
-    audioPlayer.current
-      .play()
-      .then(() => {})
-      .catch(() => {});
-  };
+export async function getServerSideProps() {
+  const res = await fetch(`${YOUTUBE_API_URL}?key=${API_KEY}`)
+  const data = await res.json()
 
-  useEffect(() => {
-    audioPlayer.current.volume = audioVolume / 100;
-  }, [audioVolume]);
-
-  useEffect(() => {
-    if (audioName !== "/voice") {
-      audioPlayer.current.pause();
-      audioPlayer.current.load();
-      audioPlayer.current
-        .play()
-        .then(() => {})
-        .catch(() => {});
+  return {
+    props: {
+      data
     }
-  }, [audioName]);
+  }
+}
+
+export default function Home({ data }) {
+  console.log('data', data)
+  const [curPage, setCurPage] = useState('voice_page')
 
   return (
     <Layout>
@@ -85,7 +68,7 @@ export default function Home() {
                 <br />
                 我怎麼在做這種東西
               </Text>
-              <Stack direction={["column", "row"]}>
+              <Stack direction={['column', 'row']}>
                 <LinkBox>
                   <LinkOverlay
                     href="https://twitter.com/kitsukitsuuu"
@@ -95,13 +78,13 @@ export default function Home() {
                       colorScheme="twitter"
                       leftIcon={<FontAwesomeIcon icon={faTwitter} />}
                       style={{
-                        "--clr": "#1877f2",
-                        color: "var(--clr)",
-                        zIndex: "2",
+                        '--clr': '#1877f2',
+                        color: 'var(--clr)',
+                        zIndex: '2'
                       }}
                       _hover={{
                         filter:
-                          "drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))",
+                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
                       }}
                     >
                       Twitter
@@ -114,13 +97,13 @@ export default function Home() {
                       colorScheme="purple"
                       leftIcon={<FontAwesomeIcon icon={faDiscord} />}
                       style={{
-                        "--clr": "#5865F2",
-                        color: "var(--clr)",
-                        zIndex: "2",
+                        '--clr': '#5865F2',
+                        color: 'var(--clr)',
+                        zIndex: '2'
                       }}
                       _hover={{
                         filter:
-                          "drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))",
+                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
                       }}
                     >
                       Discord
@@ -136,16 +119,16 @@ export default function Home() {
                       colorScheme="red"
                       leftIcon={<FontAwesomeIcon icon={faYoutube} />}
                       style={{
-                        "--clr": "#FF0000",
-                        color: "var(--clr)",
-                        zIndex: "2",
+                        '--clr': '#FF0000',
+                        color: 'var(--clr)',
+                        zIndex: '2'
                       }}
                       _hover={{
                         filter:
-                          "drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))",
+                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
                       }}
                     >
-                      {" "}
+                      {' '}
                       Youtube
                     </Button>
                   </LinkOverlay>
@@ -154,46 +137,12 @@ export default function Home() {
             </Box>
           </Box>
         </Section>
-        <Section delay={0.6}>
-          <Box>
-            <Text>音量</Text>
-            <Slider
-              aria-label="slider-ex-1"
-              defaultValue={30}
-              min={0}
-              max={100}
-              mb={10}
-              onChange={(v) => {
-                setAudioVolume(v);
-              }}
-            >
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderMark value={0} fontSize="sm">
-                0%
-              </SliderMark>
-              <SliderMark value={100} fontSize="sm">
-                100%
-              </SliderMark>
-              <SliderThumb boxSize={6}></SliderThumb>
-            </Slider>
-          </Box>
-        </Section>
-        <Section delay={0.9}>
-          <Voices playVoice={playVoice} />
-        </Section>
+        {curPage === 'voice_page' ? <VoicePack /> : null}
         <Section delay={1.2}>
           <Footer />
         </Section>
-        <audio
-          ref={(el) => {
-            audioPlayer.current = el;
-          }}
-        >
-          <source src={audioName} />
-        </audio>
       </Container>
     </Layout>
-  );
+  )
 }
+
