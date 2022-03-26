@@ -23,7 +23,6 @@ import {
 import Layout from '../components/article'
 import Section from '../components/section'
 import Footer from '../components/footer'
-import Navbar from '../components/navbar'
 import VoicePack from '../components/voice_pack'
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <Navbar />
       <Container pt={20}>
         <Section delay={0.3}>
           <Box
