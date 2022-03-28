@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <Container pt={8}>
+      <Container pt={8} maxW="container.sm">
         <Section delay={0.3}>
           <Box
             display="flex"
@@ -150,3 +150,4 @@ export default function Home() {
     </Layout>
   )
 }
+
