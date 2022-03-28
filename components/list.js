@@ -27,7 +27,6 @@ const Voices = props => {
   }, [])
 
   useEffect(() => {
-    console.table(fav)
     window.localStorage.setItem('fav', JSON.stringify(fav))
   }, [fav])
 
@@ -42,8 +41,6 @@ const Voices = props => {
         return filtered
       }, {})
     }
-
-    console.log(fav, typeof fav)
 
     let favVoice = Object.keys(newVoice).filter(val => fav.includes(val))
     let regVoice = Object.keys(newVoice).filter(val => !fav.includes(val))
