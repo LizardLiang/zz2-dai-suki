@@ -55,44 +55,31 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem
-            display="inline-flex"
-            alignItems="center"
-            style={{ gap: 4 }}
-            pl={2}
-          >
-            語音包
-          </LinkItem>
-          <LinkItem display="inline-flex" alignItems="center">
-            <LinkBox>
-              <LinkOverlay
-                href="https://events.qoo-app.com/specials/vote/YL2WYQ3YFXR8W9Q8"
-                target="_blank"
-              >
-                投票中文區
-              </LinkOverlay>
-            </LinkBox>
-          </LinkItem>
-          <LinkItem display="inline-flex" alignItems="center">
-            <LinkBox>
-              <LinkOverlay
-                href="https://events.qoo-app.com/specials/vote/3X6K8PR7HR06K9JR"
-                target="_blank"
-              >
-                投票日文區
-              </LinkOverlay>
-            </LinkBox>
-          </LinkItem>
-          <LinkItem display="inline-flex" alignItems="center">
-            <LinkBox>
-              <LinkOverlay
-                href="https://events.qoo-app.com/specials/vote/7J1WRR1XTMR0WNL6"
-                target="_blank"
-              >
-                投票英文區
-              </LinkOverlay>
-            </LinkBox>
-          </LinkItem>
+          <Button>語音包</Button>
+          <LinkBox>
+            <LinkOverlay
+              href="https://events.qoo-app.com/specials/vote/YL2WYQ3YFXR8W9Q8"
+              target="_blank"
+            >
+              <Button>投票中文區</Button>
+            </LinkOverlay>
+          </LinkBox>
+          <LinkBox>
+            <LinkOverlay
+              href="https://events.qoo-app.com/specials/vote/3X6K8PR7HR06K9JR"
+              target="_blank"
+            >
+              <Button>投票日文區</Button>
+            </LinkOverlay>
+          </LinkBox>
+          <LinkBox>
+            <LinkOverlay
+              href="https://events.qoo-app.com/specials/vote/7J1WRR1XTMR0WNL6"
+              target="_blank"
+            >
+              <Button>投票英文區</Button>
+            </LinkOverlay>
+          </LinkBox>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
             <LinkBox>
               <LinkOverlay
@@ -112,4 +99,3 @@ const Navbar = props => {
 }
 
 export default Navbar
-
