@@ -1,4 +1,3 @@
-import NextLink from 'next/link'
 import {
   Container,
   Box,
@@ -64,6 +63,36 @@ const Navbar = props => {
           >
             語音包
           </LinkItem>
+          <LinkItem display="inline-flex" alignItems="center">
+            <LinkBox>
+              <LinkOverlay
+                href="https://events.qoo-app.com/specials/vote/YL2WYQ3YFXR8W9Q8"
+                target="_blank"
+              >
+                投票中文區
+              </LinkOverlay>
+            </LinkBox>
+          </LinkItem>
+          <LinkItem display="inline-flex" alignItems="center">
+            <LinkBox>
+              <LinkOverlay
+                href="https://events.qoo-app.com/specials/vote/3X6K8PR7HR06K9JR"
+                target="_blank"
+              >
+                投票日文區
+              </LinkOverlay>
+            </LinkBox>
+          </LinkItem>
+          <LinkItem display="inline-flex" alignItems="center">
+            <LinkBox>
+              <LinkOverlay
+                href="https://events.qoo-app.com/specials/vote/7J1WRR1XTMR0WNL6"
+                target="_blank"
+              >
+                投票英文區
+              </LinkOverlay>
+            </LinkBox>
+          </LinkItem>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
             <LinkBox>
               <LinkOverlay
@@ -83,3 +112,4 @@ const Navbar = props => {
 }
 
 export default Navbar
+

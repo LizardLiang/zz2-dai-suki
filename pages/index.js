@@ -5,14 +5,11 @@ import {
   Box,
   Text,
   Button,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  SliderMark,
   Stack,
+  Link,
   LinkOverlay,
-  LinkBox
+  LinkBox,
+  useToast
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -27,10 +24,35 @@ import VoicePack from '../components/voice_pack'
 
 export default function Home() {
   const [curPage, setCurPage] = useState('voice_page')
+  const toast = useToast()
+
+  useEffect(() => {
+    toast({
+      render: () => (
+        <Box
+          display="flex"
+          justifyContent="center"
+          bg="green.500"
+          p={4}
+          borderRadius="md"
+        >
+          <Link
+            variant="Toast"
+            href="https://events.qoo-app.com/specials/vote/YL2WYQ3YFXR8W9Q8"
+          >
+            溫馨提醒, 好狸寶, 每天要投票
+          </Link>
+        </Box>
+      ),
+      status: 'success',
+      duration: 5000,
+      isClosable: true
+    })
+  }, [])
 
   return (
     <Layout>
-      <Container pt={20}>
+      <Container pt={8}>
         <Section delay={0.3}>
           <Box
             display="flex"
