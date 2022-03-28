@@ -20,13 +20,15 @@ const Voices = props => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.localStorage.getItem('fav')) {
-        setFav(window.localStorage.getItem('fav'))
+        let localFav = JSON.parse(localStorage.getItem('fav'))
+        setFav(localFav)
       }
     }
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('fav', fav)
+    console.table(fav)
+    window.localStorage.setItem('fav', JSON.stringify(fav))
   }, [fav])
 
   useEffect(() => {
@@ -41,6 +43,8 @@ const Voices = props => {
       }, {})
     }
 
+    console.log(fav, typeof fav)
+
     let favVoice = Object.keys(newVoice).filter(val => fav.includes(val))
     let regVoice = Object.keys(newVoice).filter(val => !fav.includes(val))
 
@@ -54,10 +58,6 @@ const Voices = props => {
 
     setVoice(favVoice)
   }, [props.category, fav])
-
-  useEffect(() => {
-    console.log('should re render')
-  }, [voice])
 
   return (
     <SimpleGrid columns={[2, 3, 3]} spacing={6}>
@@ -94,4 +94,3 @@ const Voices = props => {
 }
 
 export default Voices
-
