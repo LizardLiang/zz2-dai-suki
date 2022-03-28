@@ -18,16 +18,16 @@ const Voices = props => {
   }
 
   useEffect(() => {
-    localStorage.setItem('fav', fav)
-  }, [fav])
-
-  useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (localStorage.getItem('fav')) {
-        setFav(localStorage.getItem('fav'))
+      if (window.localStorage.getItem('fav')) {
+        setFav(window.localStorage.getItem('fav'))
       }
     }
   }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('fav', fav)
+  }, [fav])
 
   useEffect(() => {
     let newVoice = null
