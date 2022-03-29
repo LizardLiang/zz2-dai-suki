@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import ThemeToggleButton from './theme-toggle-button'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
@@ -81,6 +82,7 @@ const Navbar = props => {
             </LinkOverlay>
           </LinkBox>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
+            <ThemeToggleButton />
             <LinkBox>
               <LinkOverlay
                 href="https://github.com/LizardLiang/zz2-dai-suki"

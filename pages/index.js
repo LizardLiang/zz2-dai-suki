@@ -9,7 +9,8 @@ import {
   Link,
   LinkOverlay,
   LinkBox,
-  useToast
+  useToast,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -82,15 +83,21 @@ export default function Home() {
                     <Button
                       colorScheme="twitter"
                       leftIcon={<FontAwesomeIcon icon={faTwitter} />}
-                      style={{
-                        '--clr': '#1877f2',
-                        color: 'var(--clr)',
-                        zIndex: '2'
-                      }}
-                      _hover={{
-                        filter:
-                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
-                      }}
+                      style={useColorModeValue(
+                        {},
+                        {
+                          '--clr': '#1877f2',
+                          color: 'var(--clr)',
+                          zIndex: '2'
+                        }
+                      )}
+                      _hover={useColorModeValue(
+                        {},
+                        {
+                          filter:
+                            'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
+                        }
+                      )}
                     >
                       Twitter
                     </Button>
@@ -101,15 +108,21 @@ export default function Home() {
                     <Button
                       colorScheme="purple"
                       leftIcon={<FontAwesomeIcon icon={faDiscord} />}
-                      style={{
-                        '--clr': '#5865F2',
-                        color: 'var(--clr)',
-                        zIndex: '2'
-                      }}
-                      _hover={{
-                        filter:
-                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
-                      }}
+                      style={useColorModeValue(
+                        {},
+                        {
+                          '--clr': '#5865F2',
+                          color: 'var(--clr)',
+                          zIndex: '2'
+                        }
+                      )}
+                      _hover={useColorModeValue(
+                        {},
+                        {
+                          filter:
+                            'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
+                        }
+                      )}
                     >
                       Discord
                     </Button>
@@ -123,15 +136,21 @@ export default function Home() {
                     <Button
                       colorScheme="red"
                       leftIcon={<FontAwesomeIcon icon={faYoutube} />}
-                      style={{
-                        '--clr': '#FF0000',
-                        color: 'var(--clr)',
-                        zIndex: '2'
-                      }}
-                      _hover={{
-                        filter:
-                          'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
-                      }}
+                      style={useColorModeValue(
+                        {},
+                        {
+                          '--clr': '#FF0000',
+                          color: 'var(--clr)',
+                          zIndex: '2'
+                        }
+                      )}
+                      _hover={useColorModeValue(
+                        {},
+                        {
+                          filter:
+                            'drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))'
+                        }
+                      )}
                     >
                       {' '}
                       Youtube

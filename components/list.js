@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react'
-import { SimpleGrid, Button, ButtonGroup, IconButton } from '@chakra-ui/react'
+import {
+  SimpleGrid,
+  Button,
+  ButtonGroup,
+  IconButton,
+  useColorModeValue
+} from '@chakra-ui/react'
 import { voice_map } from '../lib/voice_list'
 import { ChatIcon, StarIcon } from '@chakra-ui/icons'
 
 const Voices = props => {
   const [voice, setVoice] = useState(Object.keys(voice_map))
   const [fav, setFav] = useState([])
+
+  const whiteColor = useColorModeValue('gray', 'white')
+  const yelloColor = useColorModeValue('purple.300', '#ECC94B')
 
   const addToFavorite = name => {
     if (!fav.includes(name)) {
@@ -46,12 +55,6 @@ const Voices = props => {
     let regVoice = Object.keys(newVoice).filter(val => !fav.includes(val))
 
     newVoice = favVoice.push(...regVoice)
-    const sortedVoice = Object.keys(voice_map).reduce((filtered, val) => {
-      if (favVoice.includes(val)) {
-        filtered.push(val)
-      }
-      return filtered
-    }, [])
 
     setVoice(favVoice)
   }, [props.category, fav])
@@ -81,7 +84,7 @@ const Voices = props => {
               aria-label="add to fav"
               icon={<StarIcon />}
               onClick={() => addToFavorite(val)}
-              color={fav.includes(val) ? 'yellow.300' : 'white'}
+              color={fav.includes(val) ? yelloColor : whiteColor}
             />
           </ButtonGroup>
         )
@@ -91,3 +94,4 @@ const Voices = props => {
 }
 
 export default Voices
+
