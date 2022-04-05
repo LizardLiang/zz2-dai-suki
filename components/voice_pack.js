@@ -14,9 +14,10 @@ import Category from './category'
 
 const VoicePack = () => {
   const audioPlayer = useRef()
-  const [audioName, setAudioName] = useState('')
+  const [audioName, setAudioName] = useState('/voice/噴嚏二連擊.mp3')
   const [audioVolume, setAudioVolume] = useState(30)
   const [category, setCategory] = useState('全部')
+
   const playVoice = name => {
     name = `/voice/${name}.mp3`
     if (name === audioName) {
