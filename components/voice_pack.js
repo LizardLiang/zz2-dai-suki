@@ -14,7 +14,7 @@ import Category from './category'
 
 const VoicePack = () => {
   const audioPlayer = useRef()
-  const [audioName, setAudioName] = useState('/voice/噴嚏二連擊.mp3')
+  const [audioName, setAudioName] = useState('')
   const [audioVolume, setAudioVolume] = useState(30)
   const [category, setCategory] = useState('全部')
 
@@ -46,8 +46,15 @@ const VoicePack = () => {
         .play()
         .then(() => {})
         .catch(() => {})
+      console.log(audioName)
     }
   }, [audioName])
+
+  useEffect(() => {
+    audioPlayer.current.pause()
+    audioPlayer.current.load()
+    audioPlayer.current.play()
+  }, [])
 
   return (
     <>
