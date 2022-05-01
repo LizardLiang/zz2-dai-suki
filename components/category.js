@@ -4,14 +4,14 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 const categoryList = [
   '全部',
   '狸狸兒',
-  '狸狸兒的老婆們'
+  '狸狸兒的老婆們',
   '阿腸',
   '暈船系列',
   '睡覺系列',
   '配音員系列',
   '戲謔系列',
   '罵倒系列',
-  '好油噢，宅弊了',
+  '好油噢，宅弊了'
 ]
 
 const Category = props => {
