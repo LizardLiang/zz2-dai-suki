@@ -57,30 +57,6 @@ const Navbar = props => {
           mt={{ base: 4, md: 0 }}
         >
           <Button>語音包</Button>
-          <LinkBox>
-            <LinkOverlay
-              href="https://events.qoo-app.com/specials/vote/YL2WYQ3YFXR8W9Q8"
-              target="_blank"
-            >
-              <Button>投票中文區</Button>
-            </LinkOverlay>
-          </LinkBox>
-          <LinkBox>
-            <LinkOverlay
-              href="https://events.qoo-app.com/specials/vote/3X6K8PR7HR06K9JR"
-              target="_blank"
-            >
-              <Button>投票日文區</Button>
-            </LinkOverlay>
-          </LinkBox>
-          <LinkBox>
-            <LinkOverlay
-              href="https://events.qoo-app.com/specials/vote/7J1WRR1XTMR0WNL6"
-              target="_blank"
-            >
-              <Button>投票英文區</Button>
-            </LinkOverlay>
-          </LinkBox>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
             <ThemeToggleButton />
             <LinkBox>
