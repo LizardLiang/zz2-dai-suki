@@ -56,7 +56,12 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <Button>語音包</Button>
+          <Link href="/">
+            <Button>語音包</Button>
+          </Link>
+          <Link href="/clips">
+            <Button>精華包</Button>
+          </Link>
           <Box display="flex" flexGrow={1} justifyContent="flex-end">
             <ThemeToggleButton />
             <LinkBox>
